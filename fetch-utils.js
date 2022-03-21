@@ -18,7 +18,7 @@ export async function getDog(id) {
     const response = await client
         .from('dogs')
         .select('*')
-        .match({ id: someId })
+        .match({ id: id })
         .single();
 
     // and return the response (checking for errors)
@@ -26,5 +26,6 @@ export async function getDog(id) {
 }
 
 function checkError({ data, error }) {
+    // eslint-disable-next-line no-console
     return error ? console.error(error) : data;
 }
